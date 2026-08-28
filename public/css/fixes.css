@@ -1,0 +1,52 @@
+/* Global fixes for Astro migration from Squarespace */
+
+/* Force all images in Squarespace layout blocks to be visible */
+.sqs-block-image img,
+.fluid-image-container img,
+.image-block img,
+.js-content-mode-element img,
+[data-load="false"],
+img[data-src] {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.sqs-image-shape-container-element,
+.fluid-image-container,
+.content-fill,
+.content-fit {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.sqs-block-image img {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Ensure embedded iframes render cleanly */
+.sqs-block-map iframe {
+  border: 0;
+  border-radius: 12px;
+  width: 100%;
+  min-height: 450px;
+}
+
+/* Enable shape card blocks with theme background colors and border radii */
+.sqs-block[data-definition-name="website.components.shape"] .sqs-shape-block-container {
+  display: flex !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.sqs-block[data-definition-name="website.components.shape"] .sqs-shape,
+.sqs-block[data-definition-name="website.components.shape"] svg.sqs-shape {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: inherit;
+  background-color: var(--shape-block-background-color, hsla(var(--accent-hsl), 1)) !important;
+  fill: var(--shape-block-background-color, hsla(var(--accent-hsl), 1)) !important;
+}

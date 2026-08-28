@@ -1,0 +1,20 @@
+---
+interface Props {
+  id: string;
+  title?: string;
+  accentColor?: string;
+}
+
+const { id, title = "KBAS Session Video", accentColor = "e11d48" } = Astro.props;
+---
+
+<div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border border-stone-200 bg-stone-950 group">
+  <iframe
+    class="w-full h-full border-0"
+    src={`https://videos.sproutvideo.com/embed/${id}?autoPlay=false&accentColor=${accentColor}&bigPlayButton=true`}
+    title={title}
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+    loading="lazy"
+  ></iframe>
+</div>
